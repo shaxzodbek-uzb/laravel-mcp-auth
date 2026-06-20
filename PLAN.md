@@ -4,14 +4,14 @@
 
 ## Holat
 
-- **2026-06-20 — TUGADI (local).** Paket to'liq qurildi, hammasi yashil va `git init` + initial commit qilindi (`fe19716`).
+- **2026-06-20 — TUGADI + PUBLISH.** Paket to'liq qurildi va **public chiqdi**: https://github.com/shaxzodbek-uzb/laravel-mcp-auth (CI yashil — tests matrix 8 job + quality). `gh repo create --public` + SSH push orqali.
   - Asl g'oya (#1 "drop-in resource server") **pivot qilindi**: rasmiy `laravel/mcp` (~764★) 2026-03-13 dan OAuth 2.1 RS stack'ini o'zi tashiydi (`Mcp::oauthRoutes()`, RFC 9728/8414/7591). Lekin u **Passport-ga qattiq bog'langan** va **haqiqiy token validatsiya qilmaydi**.
   - **Pozitsiya:** tashqi IdP (Auth0/Keycloak/Clerk/Sanctum/...) tokenlarini tekshiradigan RS qatlami — JWT/JWKS + RFC 7662 introspection, RFC 8707 audience binding, scope enforcement + 403 step-up, RFC 9728 discovery.
   - **Sifat:** 54 Pest test (haqiqiy `laravel/mcp` integratsiya testi ham bor), PHPStan level 6 toza, Pint toza, `composer validate` OK.
   - **Xavfsizlik (red-team workflow `wf_8cdd9968-d2a` topdi → tuzatildi):** SSRF fail-closed + A/AAAA + IPv6 ULA/link-local/mapped block + connection pinning (DNS-rebinding); JWT alg-allowlist majburlash (alg-confusion) + oct-key filtr; WWW-Authenticate control-char strip; `enforce_audience` toggle.
   - **Hujjat:** README (star-optimized, comparison table, IdP retseptlari), CHANGELOG/CONTRIBUTING/SECURITY, CI (PHP 8.2–8.4 × Laravel 11–13), `examples/`.
 - **Ma'lum cheklov (hujjatlangan):** haqiqiy `Mcp::web()` route'larida framework'ning `AddWwwAuthenticateHeader` 401 header'ini yakunlaydi (resource_metadata to'g'ri qoladi, lekin error attributelari faqat JSON body'da). 403 step-up bizniki bo'lib qoladi.
-- **Gated (owner):** public GitHub push + Packagist publish (`gh` o'rnatilmagan; outward-facing).
+- **Qoldi (owner):** Packagist'ga submit qilish (packagist.org → repo URL + GitHub webhook) — shundan keyin `composer require blaze/laravel-mcp-auth` ishlaydi. Playbook bo'yicha flagship launch promo = 7-iyul (repo erta tirik). Dependabot PR #1/#2 ochiq (action bump).
 
 ## Maqsad
 
