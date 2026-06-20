@@ -16,4 +16,4 @@ jobs:
           echo "Release ${{ github.event.release.tag_name }} published."
           echo "Packagist auto-syncs new tags via the configured GitHub webhook."
           echo "If the new version does not appear shortly, manually update the package at:"
-          echo "https://packagist.org/packages/blaze/laravel-mcp-auth"
+          echo "https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth"

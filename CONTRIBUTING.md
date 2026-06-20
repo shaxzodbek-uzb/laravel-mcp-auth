@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in improving `blaze/laravel-mcp-auth`. This package is
+Thanks for your interest in improving `shaxzodbek-uzb/laravel-mcp-auth`. This package is
 security-sensitive authentication code, so contributions are reviewed carefully.
 Please read this guide before opening a pull request.
 

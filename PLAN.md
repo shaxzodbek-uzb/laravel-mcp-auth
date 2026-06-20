@@ -11,7 +11,7 @@
   - **Xavfsizlik (red-team workflow `wf_8cdd9968-d2a` topdi → tuzatildi):** SSRF fail-closed + A/AAAA + IPv6 ULA/link-local/mapped block + connection pinning (DNS-rebinding); JWT alg-allowlist majburlash (alg-confusion) + oct-key filtr; WWW-Authenticate control-char strip; `enforce_audience` toggle.
   - **Hujjat:** README (star-optimized, comparison table, IdP retseptlari), CHANGELOG/CONTRIBUTING/SECURITY, CI (PHP 8.2–8.4 × Laravel 11–13), `examples/`.
 - **Ma'lum cheklov (hujjatlangan):** haqiqiy `Mcp::web()` route'larida framework'ning `AddWwwAuthenticateHeader` 401 header'ini yakunlaydi (resource_metadata to'g'ri qoladi, lekin error attributelari faqat JSON body'da). 403 step-up bizniki bo'lib qoladi.
-- **Qoldi (owner):** Packagist'ga submit qilish (packagist.org → repo URL + GitHub webhook) — shundan keyin `composer require blaze/laravel-mcp-auth` ishlaydi. Playbook bo'yicha flagship launch promo = 7-iyul (repo erta tirik). Dependabot PR #1/#2 ochiq (action bump).
+- **Qoldi (owner):** Packagist'ga submit qilish (packagist.org → repo URL + GitHub webhook) — shundan keyin `composer require shaxzodbek-uzb/laravel-mcp-auth` ishlaydi. Playbook bo'yicha flagship launch promo = 7-iyul (repo erta tirik). Dependabot PR #1/#2 ochiq (action bump).
 
 ## Maqsad
 

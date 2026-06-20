@@ -3,12 +3,12 @@
 **Bring-your-own-IdP OAuth 2.1 resource server for [`laravel/mcp`](https://github.com/laravel/mcp).**
 Validate access tokens from Auth0, Keycloak, Clerk, WorkOS, Logto, Okta — or your own authorization server — with RFC 8707 audience binding, per-tool scope enforcement, and RFC 9728 discovery. No Passport required.
 
-[![Packagist Version](https://img.shields.io/packagist/v/blaze/laravel-mcp-auth.svg?style=flat-square)](https://packagist.org/packages/blaze/laravel-mcp-auth)
-[![Total Downloads](https://img.shields.io/packagist/dt/blaze/laravel-mcp-auth.svg?style=flat-square)](https://packagist.org/packages/blaze/laravel-mcp-auth)
-[![PHP Version](https://img.shields.io/packagist/dependency-v/blaze/laravel-mcp-auth/php?style=flat-square)](https://packagist.org/packages/blaze/laravel-mcp-auth)
+[![Packagist Version](https://img.shields.io/packagist/v/shaxzodbek-uzb/laravel-mcp-auth.svg?style=flat-square)](https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth)
+[![Total Downloads](https://img.shields.io/packagist/dt/shaxzodbek-uzb/laravel-mcp-auth.svg?style=flat-square)](https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth)
+[![PHP Version](https://img.shields.io/packagist/dependency-v/shaxzodbek-uzb/laravel-mcp-auth/php?style=flat-square)](https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth)
 [![Laravel](https://img.shields.io/badge/Laravel-11%20%7C%2012%20%7C%2013-FF2D20?style=flat-square&logo=laravel)](https://laravel.com)
 [![Tests](https://img.shields.io/badge/tests-54%20passing-success?style=flat-square)](https://github.com/shaxzodbek-uzb/laravel-mcp-auth/actions)
-[![License](https://img.shields.io/packagist/l/blaze/laravel-mcp-auth.svg?style=flat-square)](LICENSE.md)
+[![License](https://img.shields.io/packagist/l/shaxzodbek-uzb/laravel-mcp-auth.svg?style=flat-square)](LICENSE.md)
 
 ---
 
@@ -61,7 +61,7 @@ But that scaffolding is designed around **Laravel Passport acting as your author
 ## 📦 Installation
 
 ```bash
-composer require blaze/laravel-mcp-auth
+composer require shaxzodbek-uzb/laravel-mcp-auth
 ```
 
 Then run the installer to publish the config and print setup guidance:

@@ -59,7 +59,7 @@ package serves automatically at
 1. **Install both packages.**
 
    ```bash
-   composer require laravel/mcp blaze/laravel-mcp-auth
+   composer require laravel/mcp shaxzodbek-uzb/laravel-mcp-auth
    php artisan mcp-auth:install   # publishes config/mcp-auth.php
    ```
 

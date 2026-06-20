@@ -1,5 +1,5 @@
 {
-    "name": "blaze/laravel-mcp-auth",
+    "name": "shaxzodbek-uzb/laravel-mcp-auth",
     "description": "Bring-your-own-IdP OAuth 2.1 resource server for the official laravel/mcp package: external token validation (JWT/JWKS + RFC 7662 introspection), RFC 8707 audience binding, scope enforcement, and RFC 9728 discovery.",
     "keywords": [
         "laravel",

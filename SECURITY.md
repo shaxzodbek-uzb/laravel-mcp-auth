@@ -1,6 +1,6 @@
 # Security Policy
 
-`blaze/laravel-mcp-auth` is security-sensitive authentication and authorization
+`shaxzodbek-uzb/laravel-mcp-auth` is security-sensitive authentication and authorization
 code: it validates OAuth 2.1 access tokens, enforces audience binding and
 scopes, and guards outbound requests against SSRF. A vulnerability here can
 expose protected MCP servers. Please treat reports accordingly.
