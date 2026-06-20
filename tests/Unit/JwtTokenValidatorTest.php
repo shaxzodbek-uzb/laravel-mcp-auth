@@ -51,9 +51,10 @@ it('validates a token against a JWKS endpoint', function () {
 it('rejects a token whose algorithm is not on the allowlist', function () {
     // Default allowlist is ['RS256']; an HS256 token must be rejected before any
     // key is trusted (algorithm-confusion defence).
+    // A 256-bit HMAC secret (firebase/php-jwt 7.x rejects shorter keys at encode).
     $token = JWT::encode(
         ['aud' => 'http://localhost/test-mcp', 'exp' => time() + 60],
-        'shared-secret',
+        str_repeat('k', 64),
         'HS256',
     );
 

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-20
+
+### Changed
+
+- **Require `firebase/php-jwt: ^7.0`** (was `^6.10`). All `firebase/php-jwt`
+  versions below 7.0.0 are covered by security advisory
+  [PKSA-y2cr-5h3j-g3ys](https://github.com/firebase/php-jwt/security) ("weak
+  encryption"), which made the package uninstallable under Composer's default
+  audit. 7.x is API-compatible with this package's usage. No code changes.
+
 ## [0.1.0] - 2026-06-20
 
 Initial release. A bring-your-own-IdP OAuth 2.1 resource server that protects
@@ -44,5 +54,6 @@ MCP servers exposed via the official `laravel/mcp` package.
 - Pluggable `AccessTokenValidator` and `UserResolver` contracts, a `McpAuth`
   facade, an `mcp-auth:install` Artisan command, and a publishable config file.
 
-[Unreleased]: https://github.com/shaxzodbek-uzb/laravel-mcp-auth/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/shaxzodbek-uzb/laravel-mcp-auth/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/shaxzodbek-uzb/laravel-mcp-auth/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/shaxzodbek-uzb/laravel-mcp-auth/releases/tag/v0.1.0
