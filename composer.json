@@ -1,0 +1,84 @@
+{
+    "name": "blaze/laravel-mcp-auth",
+    "description": "Bring-your-own-IdP OAuth 2.1 resource server for the official laravel/mcp package: external token validation (JWT/JWKS + RFC 7662 introspection), RFC 8707 audience binding, scope enforcement, and RFC 9728 discovery.",
+    "keywords": [
+        "laravel",
+        "mcp",
+        "model-context-protocol",
+        "oauth",
+        "oauth2",
+        "oauth2.1",
+        "resource-server",
+        "jwt",
+        "jwks",
+        "rfc9728",
+        "rfc8707",
+        "rfc7662",
+        "ai",
+        "authentication",
+        "authorization"
+    ],
+    "homepage": "https://github.com/shaxzodbek-uzb/laravel-mcp-auth",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shaxzodbek Qambaraliyev",
+            "email": "shaxzodbek@blaze.uz"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "firebase/php-jwt": "^6.10",
+        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/http": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/routing": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0"
+    },
+    "require-dev": {
+        "laravel/mcp": "^0.6 || ^0.7",
+        "laravel/pint": "^1.18",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^9.5 || ^10.0 || ^11.0",
+        "pestphp/pest": "^3.5"
+    },
+    "suggest": {
+        "laravel/mcp": "The official Laravel MCP framework this package protects (required to expose MCP servers)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Blaze\\McpAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Blaze\\McpAuth\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Blaze\\McpAuth\\McpAuthServiceProvider"
+            ],
+            "aliases": {
+                "McpAuth": "Blaze\\McpAuth\\Facades\\McpAuth"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "lint": "vendor/bin/pint",
+        "lint:test": "vendor/bin/pint --test",
+        "analyse": "vendor/bin/phpstan analyse"
+    }
+}

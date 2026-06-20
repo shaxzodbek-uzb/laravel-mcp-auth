@@ -1,0 +1,17 @@
+# Keep the published Composer package lean: exclude dev/test artefacts.
+/.github            export-ignore
+/tests              export-ignore
+/.gitattributes     export-ignore
+/.gitignore         export-ignore
+/.editorconfig      export-ignore
+/phpunit.xml        export-ignore
+/phpstan.neon       export-ignore
+/pint.json          export-ignore
+/PLAN.md            export-ignore
+/CONTRIBUTING.md    export-ignore
+/CHANGELOG.md       export-ignore
+/SECURITY.md        export-ignore
+/examples           export-ignore
+
+*.md  diff=markdown
+*.php diff=php
