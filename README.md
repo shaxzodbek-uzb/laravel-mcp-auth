@@ -7,7 +7,6 @@ Validate access tokens from Auth0, Keycloak, Clerk, WorkOS, Logto, Okta — or y
 [![Total Downloads](https://img.shields.io/packagist/dt/shaxzodbek-uzb/laravel-mcp-auth.svg?style=flat-square)](https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth)
 [![PHP Version](https://img.shields.io/packagist/dependency-v/shaxzodbek-uzb/laravel-mcp-auth/php?style=flat-square)](https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth)
 [![Laravel](https://img.shields.io/badge/Laravel-11%20%7C%2012%20%7C%2013-FF2D20?style=flat-square&logo=laravel)](https://laravel.com)
-[![Tests](https://img.shields.io/badge/tests-54%20passing-success?style=flat-square)](https://github.com/shaxzodbek-uzb/laravel-mcp-auth/actions)
 [![License](https://img.shields.io/packagist/l/shaxzodbek-uzb/laravel-mcp-auth.svg?style=flat-square)](LICENSE.md)
 
 ---
