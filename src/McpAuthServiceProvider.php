@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Blaze\McpAuth;
 
+use Blaze\McpAuth\Console\DoctorCommand;
 use Blaze\McpAuth\Console\InstallCommand;
 use Blaze\McpAuth\Contracts\AccessTokenValidator;
 use Blaze\McpAuth\Http\Middleware\ValidateMcpAccessToken;
@@ -55,7 +56,7 @@ class McpAuthServiceProvider extends ServiceProvider
         $router->aliasMiddleware('mcp-auth', ValidateMcpAccessToken::class);
 
         if ($this->app->runningInConsole()) {
-            $this->commands([InstallCommand::class]);
+            $this->commands([InstallCommand::class, DoctorCommand::class]);
         }
 
         if ($this->app['config']->get('mcp-auth.register_routes', true)) {
