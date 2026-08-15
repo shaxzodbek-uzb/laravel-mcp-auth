@@ -44,7 +44,8 @@ But that scaffolding is designed around **Laravel Passport acting as your author
 - **Per-tool scopes + step-up.** Declare scopes per route; missing scopes return `403` with `WWW-Authenticate: Bearer error="insufficient_scope", scope="..."`.
 - **RFC 9728 discovery, drop-in.** Serves `/.well-known/oauth-protected-resource` under the route names the framework's `AddWwwAuthenticateHeader` expects — works with Sanctum or custom auth.
 - **Hardened by default.** Bearer header only (query/body tokens rejected), SSRF-safe JWKS/introspection fetches (HTTPS-only, private-range blocked), strict claim canonicalization, constant-time audience comparison.
-- **Quality bar.** 54 Pest tests, PHPStan level 6, Pint (strict types) — all green.
+- **`mcp-auth:doctor`.** One command that checks the whole chain — resource identifier, issuer, JWKS reachability and algorithms, discovery routes, security posture — and validates a real token end to end. Because a misconfigured resource server has exactly one symptom: everything 401s.
+- **Quality bar.** 78 Pest tests, PHPStan level 6, Pint (strict types) — all green.
 
 ---
 
@@ -103,6 +104,46 @@ Mcp::web('/mcp/demo', DemoServer::class)->middleware('mcp-auth');
 That's it. Unauthenticated requests now receive a `401` with an RFC 9728 discovery challenge, valid tokens flow through, and your token's identity is available inside tools via `McpAuth::token()`.
 
 > **Do not also call `Mcp::oauthRoutes()`.** This package owns discovery: it registers `/.well-known/oauth-protected-resource` under the same route names the framework's `AddWwwAuthenticateHeader` middleware looks for, so the handshake keeps working. Calling both would double-register those routes.
+
+### 3. Check it before you debug it
+
+```bash
+php artisan mcp-auth:doctor
+```
+
+```
+   INFO  laravel-mcp-auth doctor.
+
+  ✓ resource ..................................... https://api.example.com/mcp
+  ✓ authorization_servers .......................... https://your-idp.example.com
+  ✓ strategy ............................................................. jwt
+  ✓ jwt.jwks_uri  https://your-idp.example.com/.well-known/jwks.json — 2 key(s), alg: RS256
+  ✓ discovery  /.well-known/oauth-protected-resource
+  ! enforce_audience  is false. RFC 8707 audience binding is the defence against a token
+    minted for another service being replayed against yours.
+
+   WARN  Configuration works, with 1 warning(s): enforce_audience.
+```
+
+A misconfigured resource server has exactly one symptom — **everything 401s** — and the reason is invisible from the outside. `doctor` names it: a JWKS URI that 404s, algorithms that share nothing with the keys the IdP publishes, `none` or an HMAC algorithm left in the list, a resource identifier that isn't canonical (so clients request a token bound to something else), missing discovery routes.
+
+Failures exit non-zero; posture warnings don't. Add `--offline` to skip every outbound request, for CI.
+
+Stuck on a specific token? Hand it over:
+
+```bash
+php artisan mcp-auth:doctor --token="$ACCESS_TOKEN"
+```
+
+```
+  subject ......................................................... user-123
+  issuer ................................. https://your-idp.example.com/
+  audiences ................................ https://other.example.com/mcp
+  scopes ....................................................... mcp:use
+  ✗ token.aud  does not include this resource ("https://api.example.com/mcp"). The client
+    must request a token bound to this resource (RFC 8707 `resource` parameter) — this is
+    the most common cause of a 401 here.
+```
 
 ---
 
