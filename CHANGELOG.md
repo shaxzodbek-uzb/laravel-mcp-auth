@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-08-16
+
+### Fixed
+
+- **Declared the missing `illuminate/console` dependency.** `InstallCommand` has
+  extended `Illuminate\Console\Command` since 0.1.0, and `DoctorCommand` joined
+  it in 0.2.0, but the package never listed the component that provides it. It
+  went unnoticed because a Laravel application pulls in `laravel/framework`,
+  which supplies the class regardless — so the package was relying on a
+  dependency it did not ask for. Installing it into a project that composes the
+  `illuminate/*` components individually gave a fatal error on
+  `Illuminate\Console\Command`.
+
 ## [0.2.0] - 2026-08-16
 
 ### Added
