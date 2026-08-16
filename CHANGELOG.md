@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-08-16
+
+### Added
+
+- **`php artisan mcp-auth:doctor`** — check the whole resource-server
+  configuration end to end. A misconfigured resource server has exactly one
+  symptom: every request 401s. The token looks fine, the IdP looks fine, and the
+  actual cause — a JWKS URI that 404s, an issuer with a trailing slash the IdP
+  does not send, audience enforcement against a resource identifier that does not
+  match what the client asked for — is invisible from the outside.
+- Checks the resource identifier, the authorization-server list, the chosen
+  strategy, JWT settings (with a live JWKS fetch), token introspection (RFC 7662,
+  with a live probe), the RFC 9728 discovery routes, and the overall security
+  posture.
+- `--token=` validates a real access token end to end and prints its claims, so
+  "which check does this token actually fail?" has an answer.
+- `--offline` skips every outbound request, for config-only checking in an
+  environment with no network.
+- Outbound probes honour the same SSRF protection the runtime uses, so `doctor`
+  cannot be turned into a request forgery tool by a hostile config.
+- Warns when the introspection cache TTL is raised past a minute, since a revoked
+  token stays accepted for that window.
+
+### Changed
+
+- **Widened the `laravel/mcp` constraint to `^0.6 || ^0.7 || ^0.8 || ^0.9.3`.**
+  Verified against both ends of the range. This is a widening, not a bump: an
+  application already pinned to 0.6 is not forced to move.
+
 ## [0.1.1] - 2026-06-20
 
 ### Changed
