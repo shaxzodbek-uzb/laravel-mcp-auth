@@ -11,9 +11,11 @@
   - **Xavfsizlik (red-team workflow `wf_8cdd9968-d2a` topdi → tuzatildi):** SSRF fail-closed + A/AAAA + IPv6 ULA/link-local/mapped block + connection pinning (DNS-rebinding); JWT alg-allowlist majburlash (alg-confusion) + oct-key filtr; WWW-Authenticate control-char strip; `enforce_audience` toggle.
   - **Hujjat:** README (star-optimized, comparison table, IdP retseptlari), CHANGELOG/CONTRIBUTING/SECURITY, CI (PHP 8.2–8.4 × Laravel 11–13), `examples/`.
 - **Ma'lum cheklov (hujjatlangan):** haqiqiy `Mcp::web()` route'larida framework'ning `AddWwwAuthenticateHeader` 401 header'ini yakunlaydi (resource_metadata to'g'ri qoladi, lekin error attributelari faqat JSON body'da). 403 step-up bizniki bo'lib qoladi.
-- **PACKAGIST LIVE:** https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth — tags **v0.1.0 + v0.1.1**. `composer require shaxzodbek-uzb/laravel-mcp-auth` → v0.1.1 (tasdiqlangan, advisory bloki yo'q).
-  - **v0.1.1:** `firebase/php-jwt` `^6.10`→`^7.0` (advisory PKSA-y2cr-5h3j-g3ys barcha <7.0.0 ni bloklaydi; 7.x API mos). v0.1.0 o'rniga v0.1.1 ishlatilsin.
-- **Qoldi:** 7-iyul launch promo (playbook). Dependabot action-bump PR'lari ochiq.
+- **PACKAGIST LIVE:** https://packagist.org/packages/shaxzodbek-uzb/laravel-mcp-auth — tags **v0.1.0, v0.1.1, v0.2.0**. `composer require shaxzodbek-uzb/laravel-mcp-auth` → v0.2.0.
+  - **v0.1.1:** `firebase/php-jwt` `^6.10`→`^7.0` (advisory PKSA-y2cr-5h3j-g3ys barcha <7.0.0 ni bloklaydi; 7.x API mos).
+  - **v0.2.0 (2026-08-16):** `mcp-auth:doctor` artisan buyrug'i — butun RS konfiguratsiyasini uchdan-uchgacha tekshiradi (JWKS/introspection live probe, `--token=` bilan haqiqiy token, `--offline`). `laravel/mcp` cheklovi `^0.6 || ^0.7 || ^0.8 || ^0.9.3` gacha kengaytirildi, ikkala uchida sinaldi. 78 test.
+- **CI:** GitHub Actions workflow'lari repodan olib tashlandi (loyiha egasining qarori). Testlar lokal `vendor/bin/pest` orqali.
+- **Qoldi:** launch promo (playbook). Dependabot PR'lari yopildi/merge qilindi.
 
 ## Maqsad
 
