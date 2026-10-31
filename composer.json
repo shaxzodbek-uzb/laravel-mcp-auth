@@ -42,7 +42,7 @@
         "laravel/pint": "^1.18",
         "larastan/larastan": "^3.0",
         "orchestra/testbench": "^9.5 || ^10.0 || ^11.0",
-        "pestphp/pest": "^3.5"
+        "pestphp/pest": "^5.3"
     },
     "suggest": {
         "laravel/mcp": "The official Laravel MCP framework this package protects (required to expose MCP servers)."
